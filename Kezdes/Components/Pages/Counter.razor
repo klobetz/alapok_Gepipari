@@ -1,5 +1,6 @@
 ﻿@page "/counter"
 @rendermode InteractiveServer
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Számláló</PageTitle>
 
@@ -9,7 +10,12 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Katt!</button>
 
-@code {    
+@if (currentCount>=5)
+{
+    <p class="mt-2">Kaptam egy 5-t!</p>
+}
+
+@code {
     private int currentCount = 0;
 
     private void IncrementCount()
