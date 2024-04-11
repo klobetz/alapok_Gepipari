@@ -9,6 +9,7 @@
 <p role="status">Jelenlegi érték: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Katt!</button>
+<button class="btn btn-outline-primary" @onclick="GoGoogle">Google</button>
 
 @if (currentCount>=5)
 {
@@ -27,5 +28,14 @@
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+
+    private void GoGoogle(MouseEventArgs e)
+    {
+        if (currentCount>=7)
+        {
+            JSRuntime.InvokeVoidAsync("open", "https://www.google.com/","_blank");
+        }
     }
 }
