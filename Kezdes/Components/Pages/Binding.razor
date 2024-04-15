@@ -1,0 +1,31 @@
+﻿@page "/binding"
+@rendermode InteractiveServer
+
+<h3>Binding</h3>
+<hr />
+
+<p>Fix szöveg</p>
+<p>@message</p>
+
+<div class="mt-5">
+    <label for="name">Név:</label>
+    <input type="text" id="name" @onchange="uzenet" placeholder="add meg a nevedet!"/>
+    <button @onclick="clear" >Clear</button>
+    <p>A megadott szöveg: @nev</p>
+</div>
+
+@code {
+    string message = "Változóban tárolt szöveg.";
+    string nev = "";
+
+    private void uzenet(ChangeEventArgs e)
+    {
+        nev = (string)e.Value;
+    }
+
+
+    private void clear(MouseEventArgs e)
+    {
+        nev = "";
+    }
+}
