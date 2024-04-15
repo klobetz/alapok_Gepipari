@@ -8,7 +8,10 @@
 
 <p role="status">Jelenlegi érték: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Katt!</button>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Katt1!</button>
+
+<button class="btn btn-su" @onclick="()=>currentCount++">Katt2!</button>
 <button class="btn btn-outline-primary" @onclick="GoGoogle">Google</button>
 
 @if (currentCount>=5)
@@ -26,7 +29,7 @@
     private int currentCount = 0;
 
     [Parameter]
-    public int GyakPageCounter { get; set; } = 1;
+    public int GyakPageCounter { get; set; } = 1;   
 
     private void IncrementCount()
     {
