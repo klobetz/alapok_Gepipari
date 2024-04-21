@@ -1,7 +1,39 @@
 ﻿@page "/todo"
+@rendermode InteractiveServer
 
-<h3>Todo</h3>
+<h3>Todo: @todos.Count(x => !x.IsDone) darab</h3>
+<hr />
+<div>
+    <input @bind="newTodo" />
+    <button @onclick="AddTodo">Hozzáadás</button>
+</div>
+
+<p>elvégzett feladat: @todos.Count(x => x.IsDone) darab</p>
+
+<ul>
+    @foreach (var item in todos)
+    {
+        <li>
+            @* <input @bind="item.Title" />  *@
+            <input type="checkbox" @bind="item.IsDone" />
+            @item.Title
+        </li>
+    }
+</ul>
+
 
 @code {
+    private List<TodoItem> todos = new();
+    string newTodo = "";
 
+
+    private void AddTodo()
+    {
+        if (!string.IsNullOrWhiteSpace(newTodo))
+        {
+            todos.Add(new TodoItem { Title = newTodo });
+            newTodo = string.Empty;
+        }
+
+    }
 }
