@@ -13,6 +13,7 @@
 
 <button class="btn btn-su" @onclick="()=>currentCount++">Katt2!</button>
 <button class="btn btn-outline-primary" @onclick="GoGoogle">Google</button>
+<button class="btn btn-outline-primary" @onclick="IncrementCountAsync">Lassú számolás</button>
 
 @if (currentCount>=5)
 {
@@ -43,5 +44,12 @@
         {
             JSRuntime.InvokeVoidAsync("open", "https://www.google.com/","_blank");
         }
+    }
+
+    private async Task IncrementCountAsync()
+    {
+        await Task.Delay(1000);
+        currentCount += GyakPageCounter;
+
     }
 }
