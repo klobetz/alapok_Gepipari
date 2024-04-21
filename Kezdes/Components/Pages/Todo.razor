@@ -3,20 +3,20 @@
 
 <h3>Todo: @todos.Count(x => !x.IsDone) darab</h3>
 <hr />
-<div>
-    <input @bind="newTodo" />
-    <button @onclick="AddTodo">Hozzáadás</button>
+<div class="col-md-4 col-sm-12">
+    <input @bind="newTodo" class="form-control mb-3" />
+    <button @onclick="AddTodo" class="btn btn-outline-primary">Hozzáadás</button>
 </div>
 
-<p>elvégzett feladat: @todos.Count(x => x.IsDone) darab</p>
+<p class="mt-3">elvégzett feladat: @todos.Count(x => x.IsDone) darab</p>
 
 <ul>
     @foreach (var item in todos)
     {
-        <li>
-            @* <input @bind="item.Title" />  *@
-            <input type="checkbox" @bind="item.IsDone" />
-            @item.Title
+        <li class="liformazas ">
+                @* <input @bind="item.Title" />  *@
+                <input type="checkbox" @bind="item.IsDone" class="me-2"/>
+                @item.Title           
         </li>
     }
 </ul>

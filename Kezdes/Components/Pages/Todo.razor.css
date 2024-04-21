@@ -1,2 +1,7 @@
-﻿body {
+﻿ {
+    background-color: darkcyan
+}
+.liformazas {
+    list-style: none;
+    margin: 4px 8px;
 }
