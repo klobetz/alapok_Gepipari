@@ -7,16 +7,60 @@
 <p>Fix szöveg</p>
 <p>@message</p>
 
+
 <div class="mt-5">
-    <label for="name">Név:</label>
-    <input type="text" id="name" @onchange="uzenet" placeholder="add meg a nevedet!"/>
-    <button @onclick="clear" >Clear</button>
+    <input @onchange="uzenet" />
     <p>A megadott szöveg: @nev</p>
 </div>
+
+<div class="mt-5">
+    <label for="name">Név:</label>
+    <input type="text" id="name" value="@nev" @onchange="uzenet" placeholder="add meg a nevedet!" />
+</div>
+
+<div class="mt-5">
+    <label for="name">Név:</label>
+    <input type="text" id="name" @onchange="uzenet" placeholder="add meg a nevedet!" />
+</div>
+
+<div class="mt-5">
+    <label for="name">Név:</label>
+    <input type="text" id="name" @onchange="uzenet" placeholder="add meg a nevedet!" />
+
+    <button @onclick="clear">Clear</button>
+    <p>A megadott szöveg: @nev</p>
+</div>
+
+
+<div class="mt-5">
+    <input @bind="nev2" />
+    <button @onclick="clear">Clear</button>
+    <p>A megadott szöveg: @nev2</p>
+</div>
+
+<div class="mt-5">
+    <input @bind="nev3" />
+    <button @onclick="() => nev3 = string.Empty">Clear</button>
+    <p>A megadott szöveg: @nev3</p>
+</div>
+
+<div class="mt-5">
+    <input @bind="nev4" @bind:event="oninput" />
+    <button @onclick="() => nev4 = string.Empty">Clear</button>
+    <p>A megadott szöveg: @nev4</p>
+</div>
+
 
 @code {
     string message = "Változóban tárolt szöveg.";
     string nev = "";
+    string nev2 = "";
+    string nev3 = "";
+    string nev4 = "";
+
+
+
+
 
     private void uzenet(ChangeEventArgs e)
     {
@@ -26,6 +70,8 @@
 
     private void clear(MouseEventArgs e)
     {
-        nev = "";
+        nev = string.Empty;
+        nev2 = string.Empty;
     }
+
 }
