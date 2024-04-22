@@ -1,4 +1,5 @@
 using Kezdes.Components;
+using Kezdes.Components.Pages;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddBlazorBootstrap();
+builder.Services.AddSingleton<LoginItem>();
 
 
 var app = builder.Build();
