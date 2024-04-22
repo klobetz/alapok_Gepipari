@@ -1,7 +1,9 @@
 ﻿@page "/home"
+@inject LoginItem LoginItem
+@rendermode InteractiveServer
 
 <PageTitle>Kezdőlap</PageTitle>
 
-<h1>Szia Világ!</h1>
+<h1>Szia @LoginItem.UserName!</h1>
 
 Üdv az új alkalmazásban!
